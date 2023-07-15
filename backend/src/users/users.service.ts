@@ -22,11 +22,13 @@ function createUserByEmailAndPassword(user: UserRequest) {
 function findUserById(id: string) {
     return prisma.user.findUnique({
         where: {
-            id
+            id: id
         }
     })
-
 }
 
+function findUsers() {
+    return prisma.user.findMany();
+}
 
-export { findUserByEmail, findUserById, createUserByEmailAndPassword}
+export { findUserByEmail, findUserById, createUserByEmailAndPassword, findUsers}
